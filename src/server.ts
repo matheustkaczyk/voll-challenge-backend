@@ -7,7 +7,6 @@ mongoose.connect(
   process.env.DB_CONNECTION as string,
   {
     useNewUrlParser: true,
-    useFindAndModify: false,
     useUnifiedTopology: true
   } as ConnectOptions
 );

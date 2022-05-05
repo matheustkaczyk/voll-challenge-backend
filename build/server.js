@@ -9,7 +9,6 @@ const dotenv_1 = __importDefault(require("dotenv"));
 dotenv_1.default.config();
 mongoose_1.default.connect(process.env.DB_CONNECTION, {
     useNewUrlParser: true,
-    useFindAndModify: false,
     useUnifiedTopology: true
 });
 app_1.app.listen(process.env.PORT || 3000, () => {

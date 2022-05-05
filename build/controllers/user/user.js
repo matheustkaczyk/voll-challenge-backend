@@ -13,11 +13,11 @@ exports.signUp = void 0;
 const user_1 = require("../../services/user");
 const signUp = (req, res) => __awaiter(void 0, void 0, void 0, function* () {
     try {
-        yield (0, user_1.signUpService)(req);
+        yield (0, user_1.signUpService)(req.body);
         res.status(201).end();
     }
     catch (error) {
-        res.status(404).json({ error });
+        res.status(404).end();
     }
 });
 exports.signUp = signUp;
