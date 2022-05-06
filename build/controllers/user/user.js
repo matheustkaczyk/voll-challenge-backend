@@ -24,10 +24,10 @@ exports.signUp = signUp;
 const signIn = (req, res) => __awaiter(void 0, void 0, void 0, function* () {
     try {
         const signIn = yield (0, user_1.signInService)(req.body);
-        res.status(200).json({ token: signIn });
+        return res.status(200).json({ token: signIn });
     }
     catch (error) {
-        res.status(400).end();
+        res.status(401).end();
     }
 });
 exports.signIn = signIn;

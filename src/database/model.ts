@@ -22,7 +22,7 @@ const UserSchema = new mongoose.Schema({
     required: true,
     trim: true,
     minlength: 3,
-    maxlength: 30,
+    maxlength: 60,
   },
   created_at: {
     type: Date,

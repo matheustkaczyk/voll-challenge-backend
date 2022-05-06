@@ -26,10 +26,15 @@ exports.signUpService = signUpService;
 const signInService = (user) => __awaiter(void 0, void 0, void 0, function* () {
     const found = yield (0, user_1.findUser)(user);
     const hashedPassword = (0, md5_1.default)(user.password);
+    let result;
     if (found) {
         if (found.password === hashedPassword) {
-            return (0, jwtSign_1.jwtSign)(found, process.env.SECRET);
+            result = (0, jwtSign_1.jwtSign)(found, process.env.SECRET);
         }
     }
+    if (!result) {
+        throw new Error('Invalid credentials');
+    }
+    return result;
 });
 exports.signInService = signInService;
