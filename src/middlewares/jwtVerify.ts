@@ -1,6 +1,6 @@
 import { NextFunction, Request, Response } from 'express';
 import dotenv from 'dotenv';
-import jwt from 'jsonwebtoken';
+import jwt, { JwtPayload } from 'jsonwebtoken';
 
 dotenv.config();
 
@@ -13,7 +13,7 @@ export const jwtVerify = (req: Request, res: Response, next: NextFunction) => {
       if (err) {
         res.status(401).end();
       } else {
-        req.user = decoded;
+        req.user = decoded as JwtPayload;
         next();
       }
     }
