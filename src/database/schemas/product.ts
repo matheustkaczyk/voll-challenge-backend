@@ -1,5 +1,5 @@
 import mongoose from 'mongoose';
-import { Product } from '../../controllers/product/product.interface';
+import { ProductModel } from '../../controllers/product/product.interface';
 
 const ProductSchema = new mongoose.Schema({
   name: {
@@ -36,5 +36,5 @@ const ProductSchema = new mongoose.Schema({
   },
 }, { timestamps: true });
 
-const Product = mongoose.model<Product>('Product', ProductSchema);
+const Product = mongoose.model<ProductModel>('Product', ProductSchema);
 export default Product;
