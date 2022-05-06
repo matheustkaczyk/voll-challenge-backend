@@ -1,4 +1,5 @@
 import mongoose from "mongoose";
+import { UserModel } from "../controllers/user/user.interface";
 
 const UserSchema = new mongoose.Schema({
   name: {
@@ -37,5 +38,5 @@ const UserSchema = new mongoose.Schema({
   },
 });
 
-const User = mongoose.model("User", UserSchema);
+const User = mongoose.model<UserModel>("User", UserSchema);
 export default User;
