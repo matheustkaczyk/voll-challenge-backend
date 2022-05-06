@@ -1,11 +1,11 @@
-import { ProductModel } from "../controllers/product/product.interface";
+import { User } from "../controllers/user/user.interface";
 
 export {};
 
 declare global {
   namespace Express {
     interface Request {
-      user: Object;
+      user: User;
     }
   }
 }

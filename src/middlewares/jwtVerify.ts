@@ -1,6 +1,7 @@
 import { NextFunction, Request, Response } from 'express';
 import dotenv from 'dotenv';
-import jwt, { JwtPayload } from 'jsonwebtoken';
+import jwt from 'jsonwebtoken';
+import { User } from '../controllers/user/user.interface';
 
 dotenv.config();
 
@@ -13,7 +14,7 @@ export const jwtVerify = (req: Request, res: Response, next: NextFunction) => {
       if (err) {
         res.status(401).end();
       } else {
-        req.user = decoded as JwtPayload;
+        req.user = decoded as User;
         next();
       }
     }
