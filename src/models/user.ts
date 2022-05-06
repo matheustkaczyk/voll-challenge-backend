@@ -5,6 +5,6 @@ export const createUser = async (user: User): Promise<any> => {
   return await UserSchema.create(user);
 }
 
-export const findUser = async (user: UserLogin): Promise<UserLogin> => {
+export const findUser = async (user: UserLogin): Promise<User | null> => {
   return await UserSchema.findOne({ email: user.email });
 }

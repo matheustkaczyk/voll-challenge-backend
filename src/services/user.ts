@@ -1,6 +1,10 @@
 import { User, UserLogin } from "../controllers/user/user.interface";
 import { createUser, findUser } from "../models/user";
+import { jwtSign } from "../utils/jwtSign";
+import dotenv from 'dotenv';
 import md5 from "md5";
+
+dotenv.config();
 
 export const signUpService = async (user: User) => {
   user.password = md5(user.password);
@@ -13,7 +17,7 @@ export const signInService = async (user: UserLogin): Promise<any> => {
 
   if (found) {
     if (found.password === hashedPassword) {
-      return found;
+      return jwtSign(found, process.env.SECRET);
     }
   }
 }
