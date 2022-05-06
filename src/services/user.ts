@@ -3,7 +3,6 @@ import { createUser, findUser } from "../models/user";
 import { jwtSign } from "../utils/jwtSign";
 import dotenv from 'dotenv';
 import md5 from "md5";
-import jwt from 'jsonwebtoken';
 
 dotenv.config();
 
