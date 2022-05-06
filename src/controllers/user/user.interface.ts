@@ -5,3 +5,8 @@ export interface User {
   balance: number;
   role: string;
 }
+
+export interface UserLogin {
+  email: string;
+  password: string;
+}
