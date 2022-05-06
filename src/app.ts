@@ -1,8 +1,8 @@
 import express from 'express';
-import { signUp } from './controllers/user/user';
+import userRoutes from './controllers/user/user-routes';
 
 export const app = express();
 
 app.use(express.json());
 
-app.use('/signup', signUp);
+app.use('/user', userRoutes);

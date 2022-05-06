@@ -17,14 +17,14 @@ const signUp = (req, res) => __awaiter(void 0, void 0, void 0, function* () {
         res.status(201).end();
     }
     catch (error) {
-        res.status(404).end();
+        res.status(400).end();
     }
 });
 exports.signUp = signUp;
 const signIn = (req, res) => __awaiter(void 0, void 0, void 0, function* () {
     try {
         const signIn = yield (0, user_1.signInService)(req.body);
-        res.status(200).json(signIn);
+        res.status(200).json({ token: signIn });
     }
     catch (error) {
         res.status(400).end();
