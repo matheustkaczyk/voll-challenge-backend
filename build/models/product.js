@@ -12,7 +12,7 @@ var __importDefault = (this && this.__importDefault) || function (mod) {
     return (mod && mod.__esModule) ? mod : { "default": mod };
 };
 Object.defineProperty(exports, "__esModule", { value: true });
-exports.editProductById = exports.findProductById = exports.createProduct = void 0;
+exports.removeProductById = exports.editProductById = exports.findProductById = exports.createProduct = void 0;
 const product_1 = __importDefault(require("../database/schemas/product"));
 const createProduct = (product) => __awaiter(void 0, void 0, void 0, function* () {
     yield product_1.default.create(product);
@@ -27,3 +27,7 @@ const editProductById = (id, newProduct) => __awaiter(void 0, void 0, void 0, fu
     yield product_1.default.findByIdAndUpdate(id, newProduct);
 });
 exports.editProductById = editProductById;
+const removeProductById = (id) => __awaiter(void 0, void 0, void 0, function* () {
+    yield product_1.default.findByIdAndDelete(id);
+});
+exports.removeProductById = removeProductById;

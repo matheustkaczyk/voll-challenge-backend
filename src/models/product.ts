@@ -13,3 +13,8 @@ export const findProductById = async (id: string): Promise<ProductModel | null> 
 export const editProductById = async (id: string, newProduct: IProduct): Promise<void> => { 
   await Product.findByIdAndUpdate(id, newProduct);
 }
+
+export const removeProductById = async (id: string): Promise<void> => {
+  await Product.findByIdAndDelete(id);
+}
+
