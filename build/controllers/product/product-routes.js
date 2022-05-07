@@ -11,4 +11,5 @@ const router = express_1.default.Router();
 router.get('/', jwtVerify_1.jwtVerify, product_1.getAllProducts);
 router.post('/', jwtVerify_1.jwtVerify, (0, roleCheck_1.default)('admin'), product_1.createProduct);
 router.put('/:id', jwtVerify_1.jwtVerify, (0, roleCheck_1.default)('admin'), product_1.editProductById);
+router.delete('/:id', jwtVerify_1.jwtVerify, (0, roleCheck_1.default)('admin'), product_1.removeProductById);
 exports.default = router;

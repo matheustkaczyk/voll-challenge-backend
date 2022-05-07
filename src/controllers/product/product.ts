@@ -2,7 +2,8 @@ import { Request, Response } from "express";
 import {
   createProductService,
   editProductByIdService,
-  getAllProductsService
+  getAllProductsService,
+  removeProductByIdService
 } from "../../services/product";
 
 export const getAllProducts = async (req: Request, res: Response) => {
@@ -38,3 +39,13 @@ export const editProductById = async (req: Request, res: Response) => {
   }
 }
 
+export const removeProductById = async (req: Request, res: Response) => {
+  try {
+    const id = req.params.id;
+    await removeProductByIdService(id);
+
+    return res.status(200).end();
+  } catch(error) {
+    return res.status(404).end();
+  }
+}
