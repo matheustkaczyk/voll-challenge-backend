@@ -13,11 +13,12 @@ const jwtVerify = (req, res, next) => {
     if (token) {
         jsonwebtoken_1.default.verify(token, secret, (err, decoded) => {
             if (err) {
-                console.log(err);
                 return res.status(401).end();
             }
             else {
-                req.user = decoded;
+                const { payload } = decoded;
+                delete payload.password;
+                req.user = payload;
                 next();
             }
         });

@@ -1,4 +1,4 @@
-import { User } from "../controllers/user/user.interface";
+import { User, UserModel } from "../controllers/user/user.interface";
 
 export {};
 
