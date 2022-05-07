@@ -1,5 +1,5 @@
 import { Product, ProductModel } from "../controllers/product/product.interface";
-import { createProduct, getAllProducts } from "../models/product";
+import { createProduct, editProductById, getAllProducts } from "../models/product";
 
 export const getAllProductsService = async (): Promise<ProductModel[]> => {
   return await getAllProducts();
@@ -7,4 +7,8 @@ export const getAllProductsService = async (): Promise<ProductModel[]> => {
 
 export const createProductService = async (product: Product): Promise<void> => {
   await createProduct(product);
+}
+
+export const editProductByIdService = async (id: string, newProduct: Product): Promise<void> => {
+  await editProductById(id, newProduct);
 }

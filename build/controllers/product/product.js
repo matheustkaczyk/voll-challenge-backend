@@ -9,7 +9,7 @@ var __awaiter = (this && this.__awaiter) || function (thisArg, _arguments, P, ge
     });
 };
 Object.defineProperty(exports, "__esModule", { value: true });
-exports.createProduct = exports.getAllProducts = void 0;
+exports.editProductById = exports.createProduct = exports.getAllProducts = void 0;
 const product_1 = require("../../services/product");
 const getAllProducts = (req, res) => __awaiter(void 0, void 0, void 0, function* () {
     try {
@@ -32,3 +32,15 @@ const createProduct = (req, res) => __awaiter(void 0, void 0, void 0, function* 
     }
 });
 exports.createProduct = createProduct;
+const editProductById = (req, res) => __awaiter(void 0, void 0, void 0, function* () {
+    try {
+        const id = req.params.id;
+        const newProduct = req.body;
+        yield (0, product_1.editProductByIdService)(id, newProduct);
+        return res.status(200).end();
+    }
+    catch (error) {
+        return res.status(404).end();
+    }
+});
+exports.editProductById = editProductById;

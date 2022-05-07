@@ -10,4 +10,5 @@ const product_1 = require("./product");
 const router = express_1.default.Router();
 router.get('/', jwtVerify_1.jwtVerify, product_1.getAllProducts);
 router.post('/', jwtVerify_1.jwtVerify, (0, roleCheck_1.default)('admin'), product_1.createProduct);
+router.put('/:id', jwtVerify_1.jwtVerify, (0, roleCheck_1.default)('admin'), product_1.editProductById);
 exports.default = router;
