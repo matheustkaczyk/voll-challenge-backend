@@ -5,3 +5,5 @@ import { getAllProducts } from '../../models/product';
 const router = express.Router();
 
 router.get('/products', jwtVerify, getAllProducts);
+
+export default router;
