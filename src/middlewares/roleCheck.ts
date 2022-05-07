@@ -6,9 +6,7 @@ export default (role: string) => {
       next();
     }
     else {
-      res.status(403).json({
-        message: "You don't have the required permissions to perform this action"
-      });
+      res.status(403).end();
     }
   }
 }
