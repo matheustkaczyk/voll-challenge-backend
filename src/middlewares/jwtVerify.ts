@@ -7,12 +7,13 @@ dotenv.config();
 
 export const jwtVerify = (req: Request, res: Response, next: NextFunction) => {
   const token = req.headers.authorization;
-  const secret = process.env.secret;
+  const secret = process.env.SECRET;
 
   if (token) {
     jwt.verify(token, secret as string, (err, decoded) => {
       if (err) {
-        res.status(401).end();
+        console.log(err);
+        return res.status(401).end();
       } else {
         req.user = decoded as User;
         next();
@@ -20,7 +21,7 @@ export const jwtVerify = (req: Request, res: Response, next: NextFunction) => {
     }
     );
   } else {
-    res.status(400).end();
+    return res.status(400).end();
   }
 }
 

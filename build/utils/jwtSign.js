@@ -22,7 +22,7 @@ Object.defineProperty(exports, "__esModule", { value: true });
 exports.jwtSign = void 0;
 const jwt = __importStar(require("jsonwebtoken"));
 const jwtSign = (payload, secret) => {
-    const token = jwt.sign({ payload }, secret || 'mysecret', { expiresIn: '7d' });
+    const token = jwt.sign({ payload }, secret, { expiresIn: '7d' });
     return token;
 };
 exports.jwtSign = jwtSign;
