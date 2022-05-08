@@ -11,7 +11,7 @@ var __awaiter = (this && this.__awaiter) || function (thisArg, _arguments, P, ge
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.removeProductById = exports.editProductById = exports.createProduct = exports.getAllProducts = void 0;
 const product_1 = require("../../services/product");
-const getAllProducts = (req, res) => __awaiter(void 0, void 0, void 0, function* () {
+const getAllProducts = (_req, res) => __awaiter(void 0, void 0, void 0, function* () {
     try {
         const products = yield (0, product_1.getAllProductsService)();
         return res.status(200).json(products);

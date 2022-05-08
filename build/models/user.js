@@ -12,7 +12,7 @@ var __importDefault = (this && this.__importDefault) || function (mod) {
     return (mod && mod.__esModule) ? mod : { "default": mod };
 };
 Object.defineProperty(exports, "__esModule", { value: true });
-exports.findUser = exports.createUser = void 0;
+exports.updateCurrency = exports.findUser = exports.createUser = void 0;
 const user_1 = __importDefault(require("../database/schemas/user"));
 const createUser = (user) => __awaiter(void 0, void 0, void 0, function* () {
     return yield user_1.default.create(user);
@@ -22,3 +22,7 @@ const findUser = (user) => __awaiter(void 0, void 0, void 0, function* () {
     return yield user_1.default.findOne({ email: user.email });
 });
 exports.findUser = findUser;
+const updateCurrency = (user, currency) => __awaiter(void 0, void 0, void 0, function* () {
+    return yield user_1.default.updateOne({ email: user.email }, { $set: { balance: currency } });
+});
+exports.updateCurrency = updateCurrency;

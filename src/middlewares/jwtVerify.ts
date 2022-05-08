@@ -1,7 +1,7 @@
 import { NextFunction, Request, Response } from 'express';
 import dotenv from 'dotenv';
 import jwt from 'jsonwebtoken';
-import { UserModel } from '../controllers/user/user.interface';
+import { IUserModel } from '../controllers/user/user.interface';
 
 dotenv.config();
 
@@ -16,7 +16,7 @@ export const jwtVerify = (req: Request, res: Response, next: NextFunction) => {
       } else {
         const { payload }: any = decoded;
         delete payload.password;
-        req.user = payload as UserModel;
+        req.user = payload as IUserModel;
         next();
       }
     }

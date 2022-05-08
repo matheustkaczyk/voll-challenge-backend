@@ -6,7 +6,7 @@ import {
   removeProductByIdService
 } from "../../services/product";
 
-export const getAllProducts = async (req: Request, res: Response) => {
+export const getAllProducts = async (_req: Request, res: Response) => {
   try {
     const products = await getAllProductsService();
 

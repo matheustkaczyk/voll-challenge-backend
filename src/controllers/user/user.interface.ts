@@ -1,4 +1,4 @@
-export interface User {
+export interface IUser {
   name: string;
   email: string;
   password: string;
@@ -6,12 +6,12 @@ export interface User {
   role: string;
 }
 
-export interface UserLogin {
+export interface IUserLogin {
   email: string;
   password: string;
 }
 
-export interface UserModel {
+export interface IUserModel {
   _id: string;
   name: string;
   email: string;

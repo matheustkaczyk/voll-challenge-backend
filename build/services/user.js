@@ -12,7 +12,7 @@ var __importDefault = (this && this.__importDefault) || function (mod) {
     return (mod && mod.__esModule) ? mod : { "default": mod };
 };
 Object.defineProperty(exports, "__esModule", { value: true });
-exports.signInService = exports.signUpService = void 0;
+exports.updateCurrencyService = exports.signInService = exports.signUpService = void 0;
 const user_1 = require("../models/user");
 const jwtSign_1 = require("../utils/jwtSign");
 const dotenv_1 = __importDefault(require("dotenv"));
@@ -38,3 +38,22 @@ const signInService = (user) => __awaiter(void 0, void 0, void 0, function* () {
     return result;
 });
 exports.signInService = signInService;
+const updateCurrencyService = (user, currency) => __awaiter(void 0, void 0, void 0, function* () {
+    const found = yield (0, user_1.findUser)(user);
+    let newCurrency = 0;
+    if (found) {
+        const getOperator = currency.split('')[0];
+        if (getOperator === '+') {
+            newCurrency = found.balance += Number(currency.split('').slice(1).join(''));
+        }
+        else if (getOperator === '-' && found.balance >= Number(currency.split('').slice(1).join(''))) {
+            newCurrency = found.balance -= Number(currency.split('').slice(1).join(''));
+        }
+        else {
+            throw new Error('You don\'t have enough money');
+        }
+        return yield (0, user_1.updateCurrency)(found, newCurrency);
+    }
+    throw new Error('User not found');
+});
+exports.updateCurrencyService = updateCurrencyService;
