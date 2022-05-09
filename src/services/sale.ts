@@ -1,7 +1,7 @@
 import { IProductSale } from "../controllers/product/product.interface";
 import { IUserModel } from "../controllers/user/user.interface";
 import { findProductById } from "../models/product";
-import { createSale, decreaseFromAccount } from "../models/sale"
+import { createSale, decreaseFromAccount, decreaseProductQuantity } from "../models/sale"
 import { findUser } from "../models/user";
 
 export const createSaleService = async (user: IUserModel, products: IProductSale[]) => {
@@ -20,8 +20,8 @@ export const createSaleService = async (user: IUserModel, products: IProductSale
       throw new Error("You don't have enough coins");
     }
     await decreaseFromAccount(foundUser, products.reduce((acc, curr) => acc + curr.total, 0))
+    await decreaseProductQuantity(products);
   }
-
   return await createSale(
     user,
     products

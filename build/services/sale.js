@@ -27,6 +27,7 @@ const createSaleService = (user, products) => __awaiter(void 0, void 0, void 0, 
                 throw new Error("You don't have enough coins");
             }
             yield (0, sale_1.decreaseFromAccount)(foundUser, products.reduce((acc, curr) => acc + curr.total, 0));
+            yield (0, sale_1.decreaseProductQuantity)(products);
         }
         return yield (0, sale_1.createSale)(user, products);
     }

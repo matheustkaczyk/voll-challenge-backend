@@ -12,7 +12,8 @@ var __importDefault = (this && this.__importDefault) || function (mod) {
     return (mod && mod.__esModule) ? mod : { "default": mod };
 };
 Object.defineProperty(exports, "__esModule", { value: true });
-exports.decreaseFromAccount = exports.createSale = void 0;
+exports.decreaseProductQuantity = exports.decreaseFromAccount = exports.createSale = void 0;
+const product_1 = __importDefault(require("../database/schemas/product"));
 const sale_1 = __importDefault(require("../database/schemas/sale"));
 const user_1 = __importDefault(require("../database/schemas/user"));
 const createSale = (user, products) => __awaiter(void 0, void 0, void 0, function* () {
@@ -31,3 +32,16 @@ const decreaseFromAccount = (user, total) => __awaiter(void 0, void 0, void 0, f
     });
 });
 exports.decreaseFromAccount = decreaseFromAccount;
+const decreaseProductQuantity = (products) => __awaiter(void 0, void 0, void 0, function* () {
+    for (let product of products) {
+        const foundProducts = yield product_1.default.findById(product._id);
+        if (foundProducts) {
+            yield product_1.default.updateOne({
+                _id: product._id
+            }, {
+                stock: foundProducts.stock - product.quantity
+            });
+        }
+    }
+});
+exports.decreaseProductQuantity = decreaseProductQuantity;

@@ -1,5 +1,6 @@
 import { IProductSale } from "../controllers/product/product.interface";
 import { IUserModel } from "../controllers/user/user.interface";
+import Product from "../database/schemas/product";
 import Sale from "../database/schemas/sale";
 import User from "../database/schemas/user";
 
@@ -22,4 +23,20 @@ export const decreaseFromAccount = async (user: IUserModel, total: number) => {
       balance: user.balance - total
     }
   );
+}
+
+export const decreaseProductQuantity = async (products: IProductSale[]) => {
+  for (let product of products) {
+    const foundProducts = await Product.findById(product._id)
+    if (foundProducts) {
+      await Product.updateOne(
+        {
+          _id: product._id
+        },
+        {
+          stock: foundProducts.stock - product.quantity
+        }
+      )
+    }
+  }
 }

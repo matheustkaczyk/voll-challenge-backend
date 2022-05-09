@@ -13,3 +13,4 @@ export const createSale = async (req: Request, res: Response) => {
     res.status(400).end();
   }
 }
+ 
