@@ -8,7 +8,7 @@ export const createSale = async (req: Request, res: Response) => {
       req.body.products
     );
 
-    res.status(201).send();
+    res.status(201).end();
   } catch (error) {
     res.status(400).end();
   }

@@ -10,8 +10,25 @@ var __awaiter = (this && this.__awaiter) || function (thisArg, _arguments, P, ge
 };
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.createSaleService = void 0;
+const product_1 = require("../models/product");
 const sale_1 = require("../models/sale");
+const user_1 = require("../models/user");
 const createSaleService = (user, products) => __awaiter(void 0, void 0, void 0, function* () {
-    return yield (0, sale_1.createSale)(user, products);
+    for (let product of products) {
+        const foundProducts = yield (0, product_1.findProductById)(product._id);
+        if (foundProducts) {
+            if (foundProducts.stock < product.quantity) {
+                throw new Error("Product quantity is not enough");
+            }
+        }
+        const foundUser = yield (0, user_1.findUser)(user);
+        if (foundUser) {
+            if (foundUser.balance < products.reduce((acc, curr) => acc + curr.total, 0)) {
+                throw new Error("You don't have enough coins");
+            }
+            yield (0, sale_1.decreaseFromAccount)(foundUser, products.reduce((acc, curr) => acc + curr.total, 0));
+        }
+        return yield (0, sale_1.createSale)(user, products);
+    }
 });
 exports.createSaleService = createSaleService;

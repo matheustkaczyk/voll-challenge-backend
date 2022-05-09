@@ -14,7 +14,7 @@ const sale_1 = require("../../services/sale");
 const createSale = (req, res) => __awaiter(void 0, void 0, void 0, function* () {
     try {
         yield (0, sale_1.createSaleService)(req.user, req.body.products);
-        res.status(201).send();
+        res.status(201).end();
     }
     catch (error) {
         res.status(400).end();

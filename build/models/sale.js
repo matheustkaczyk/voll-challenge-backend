@@ -12,8 +12,9 @@ var __importDefault = (this && this.__importDefault) || function (mod) {
     return (mod && mod.__esModule) ? mod : { "default": mod };
 };
 Object.defineProperty(exports, "__esModule", { value: true });
-exports.createSale = void 0;
+exports.decreaseFromAccount = exports.createSale = void 0;
 const sale_1 = __importDefault(require("../database/schemas/sale"));
+const user_1 = __importDefault(require("../database/schemas/user"));
 const createSale = (user, products) => __awaiter(void 0, void 0, void 0, function* () {
     return yield sale_1.default.create({
         user_id: user._id,
@@ -22,3 +23,11 @@ const createSale = (user, products) => __awaiter(void 0, void 0, void 0, functio
     });
 });
 exports.createSale = createSale;
+const decreaseFromAccount = (user, total) => __awaiter(void 0, void 0, void 0, function* () {
+    return yield user_1.default.updateOne({
+        _id: user._id
+    }, {
+        balance: user.balance - total
+    });
+});
+exports.decreaseFromAccount = decreaseFromAccount;
