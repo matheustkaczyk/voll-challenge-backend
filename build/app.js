@@ -8,8 +8,14 @@ const express_1 = __importDefault(require("express"));
 const user_routes_1 = __importDefault(require("./controllers/user/user-routes"));
 const product_routes_1 = __importDefault(require("./controllers/product/product-routes"));
 const sale_routes_1 = __importDefault(require("./controllers/sale/sale-routes"));
+const cors_1 = __importDefault(require("cors"));
 exports.app = (0, express_1.default)();
+const corsOptions = {
+    origin: 'http://localhost:3000',
+    methods: ['GET', 'POST', 'PUT', 'DELETE'],
+};
 exports.app.use(express_1.default.json());
+exports.app.use((0, cors_1.default)(corsOptions));
 exports.app.use('/user', user_routes_1.default);
 exports.app.use('/products', product_routes_1.default);
 exports.app.use('/sale', sale_routes_1.default);

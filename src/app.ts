@@ -7,9 +7,8 @@ import cors from 'cors';
 export const app = express();
 
 const corsOptions = {
-  origin: '*',
+  origin: 'http://localhost:3000',
   methods: ['GET', 'POST', 'PUT', 'DELETE'],
-  allowedHeaders: ['Content-Type', 'Authorization'],
 }
 
 app.use(express.json());
