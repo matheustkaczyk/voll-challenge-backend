@@ -12,32 +12,10 @@ var __importDefault = (this && this.__importDefault) || function (mod) {
     return (mod && mod.__esModule) ? mod : { "default": mod };
 };
 Object.defineProperty(exports, "__esModule", { value: true });
-exports.findUserService = exports.updateCurrencyService = exports.signInService = exports.signUpService = void 0;
+exports.findUserService = exports.updateCurrencyService = void 0;
 const user_1 = require("../models/user");
-const jwtSign_1 = require("../utils/jwtSign");
 const dotenv_1 = __importDefault(require("dotenv"));
-const md5_1 = __importDefault(require("md5"));
 dotenv_1.default.config();
-const signUpService = (user) => __awaiter(void 0, void 0, void 0, function* () {
-    user.password = (0, md5_1.default)(user.password);
-    return yield (0, user_1.createUser)(user);
-});
-exports.signUpService = signUpService;
-const signInService = (user) => __awaiter(void 0, void 0, void 0, function* () {
-    const found = yield (0, user_1.findUser)(user);
-    const hashedPassword = (0, md5_1.default)(user.password);
-    let result;
-    if (found) {
-        if (found.password === hashedPassword) {
-            result = (0, jwtSign_1.jwtSign)(found, process.env.SECRET);
-        }
-    }
-    if (!result) {
-        throw new Error('Invalid credentials');
-    }
-    return result;
-});
-exports.signInService = signInService;
 const updateCurrencyService = (user, currency) => __awaiter(void 0, void 0, void 0, function* () {
     const found = yield (0, user_1.findUser)(user);
     let newCurrency = 0;

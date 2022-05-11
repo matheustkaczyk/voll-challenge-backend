@@ -9,25 +9,25 @@ var __awaiter = (this && this.__awaiter) || function (thisArg, _arguments, P, ge
     });
 };
 Object.defineProperty(exports, "__esModule", { value: true });
-exports.findUser = exports.updateCurrency = void 0;
-const user_1 = require("../../services/user");
-const updateCurrency = (req, res) => __awaiter(void 0, void 0, void 0, function* () {
+exports.signIn = exports.signUp = void 0;
+const auth_1 = require("../../services/auth");
+const signUp = (req, res) => __awaiter(void 0, void 0, void 0, function* () {
     try {
-        yield (0, user_1.updateCurrencyService)(req.body, req.body.currency);
-        return res.status(200).end();
+        yield (0, auth_1.signUpService)(req.body);
+        res.status(201).end();
     }
     catch (error) {
-        return res.status(400).end();
+        res.status(400).end();
     }
 });
-exports.updateCurrency = updateCurrency;
-const findUser = (req, res) => __awaiter(void 0, void 0, void 0, function* () {
+exports.signUp = signUp;
+const signIn = (req, res) => __awaiter(void 0, void 0, void 0, function* () {
     try {
-        const user = yield (0, user_1.findUserService)(req.user);
-        return res.status(200).json({ data: user });
+        const signIn = yield (0, auth_1.signInService)(req.body);
+        return res.status(200).json({ token: signIn });
     }
     catch (error) {
-        return res.status(404).end();
+        res.status(401).end();
     }
 });
-exports.findUser = findUser;
+exports.signIn = signIn;
