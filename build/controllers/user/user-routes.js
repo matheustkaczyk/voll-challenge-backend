@@ -9,5 +9,5 @@ const roleCheck_1 = __importDefault(require("../../middlewares/roleCheck"));
 const user_1 = require("./user");
 const router = express_1.default.Router();
 router.patch('/currency', jwtVerify_1.jwtVerify, (0, roleCheck_1.default)('admin'), user_1.updateCurrency);
-router.get('/user', jwtVerify_1.jwtVerify, user_1.findUser);
+router.get('/', jwtVerify_1.jwtVerify, user_1.findUser);
 exports.default = router;

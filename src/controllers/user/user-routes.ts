@@ -6,6 +6,6 @@ import { findUser, updateCurrency } from './user';
 const router = express.Router();
 
 router.patch('/currency', jwtVerify, roleCheck('admin'), updateCurrency);
-router.get('/user', jwtVerify, findUser);
+router.get('/', jwtVerify, findUser);
 
 export default router;
