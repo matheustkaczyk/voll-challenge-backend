@@ -1,5 +1,5 @@
 import { Request, Response } from "express";
-import { findUserService, updateCurrencyService } from "../../services/user";
+import { findAllUsersService, findUserService, updateCurrencyService } from "../../services/user";
 
 export const updateCurrency = async (req: Request, res: Response) => {
   try {
@@ -29,3 +29,26 @@ export const findUser = async (req: Request, res: Response) => {
     return res.status(404).end();
   }
 }
+
+export const findAllUsers = async (req: Request, res: Response) => {
+  try {
+    const users = await findAllUsersService();
+
+    const usersWithNoPassword = users.map(user => {
+      return {
+        _id: user._id,
+        name: user.name,
+        email: user.email,
+        balance: user.balance,
+        role: user.role,
+        created_at: user.created_at
+      }
+    }
+    );
+
+    return res.status(200).json({ data: usersWithNoPassword });
+  } catch (error) {
+    return res.status(404).end();
+  }
+}
+

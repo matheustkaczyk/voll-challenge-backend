@@ -12,7 +12,7 @@ var __importDefault = (this && this.__importDefault) || function (mod) {
     return (mod && mod.__esModule) ? mod : { "default": mod };
 };
 Object.defineProperty(exports, "__esModule", { value: true });
-exports.findUserService = exports.updateCurrencyService = void 0;
+exports.findAllUsersService = exports.findUserService = exports.updateCurrencyService = void 0;
 const user_1 = require("../models/user");
 const dotenv_1 = __importDefault(require("dotenv"));
 dotenv_1.default.config();
@@ -42,3 +42,10 @@ const findUserService = (user) => __awaiter(void 0, void 0, void 0, function* ()
     return found;
 });
 exports.findUserService = findUserService;
+const findAllUsersService = () => __awaiter(void 0, void 0, void 0, function* () {
+    const found = yield (0, user_1.findAllUsers)();
+    if (!found)
+        throw new Error('User not found');
+    return found;
+});
+exports.findAllUsersService = findAllUsersService;

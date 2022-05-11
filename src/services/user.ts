@@ -1,5 +1,5 @@
-import { IUser, IUserModel } from "../controllers/user/user.interface";
-import { findUser, updateCurrency } from "../models/user";
+import { IUserModel } from "../controllers/user/user.interface";
+import { findAllUsers, findUser, updateCurrency } from "../models/user";
 import dotenv from 'dotenv';
 
 dotenv.config();
@@ -29,5 +29,13 @@ export const findUserService = async (user: IUserModel) => {
 
   if (!found) throw new Error('User not found');
 
+  return found;
+}
+
+export const findAllUsersService = async () => {
+  const found = await findAllUsers();
+
+  if (!found) throw new Error('User not found');
+  
   return found;
 }

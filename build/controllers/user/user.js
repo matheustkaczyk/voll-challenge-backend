@@ -9,7 +9,7 @@ var __awaiter = (this && this.__awaiter) || function (thisArg, _arguments, P, ge
     });
 };
 Object.defineProperty(exports, "__esModule", { value: true });
-exports.findUser = exports.updateCurrency = void 0;
+exports.findAllUsers = exports.findUser = exports.updateCurrency = void 0;
 const user_1 = require("../../services/user");
 const updateCurrency = (req, res) => __awaiter(void 0, void 0, void 0, function* () {
     try {
@@ -39,3 +39,23 @@ const findUser = (req, res) => __awaiter(void 0, void 0, void 0, function* () {
     }
 });
 exports.findUser = findUser;
+const findAllUsers = (req, res) => __awaiter(void 0, void 0, void 0, function* () {
+    try {
+        const users = yield (0, user_1.findAllUsersService)();
+        const usersWithNoPassword = users.map(user => {
+            return {
+                _id: user._id,
+                name: user.name,
+                email: user.email,
+                balance: user.balance,
+                role: user.role,
+                created_at: user.created_at
+            };
+        });
+        return res.status(200).json({ data: usersWithNoPassword });
+    }
+    catch (error) {
+        return res.status(404).end();
+    }
+});
+exports.findAllUsers = findAllUsers;
