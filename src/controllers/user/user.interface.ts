@@ -6,14 +6,6 @@ export interface IUser {
   role: string;
 }
 
-export interface IUserNoPassword {
-  name: string;
-  email: string;
-  password?: string;
-  balance: number;
-  role: string;
-}
-
 export interface IUserLogin {
   email: string;
   password: string;

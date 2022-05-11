@@ -24,8 +24,14 @@ exports.updateCurrency = updateCurrency;
 const findUser = (req, res) => __awaiter(void 0, void 0, void 0, function* () {
     try {
         const user = yield (0, user_1.findUserService)(req.user);
-        const userWithNoPassword = Object.assign({}, user);
-        delete userWithNoPassword.password;
+        const userWithNoPassword = {
+            _id: user._id,
+            name: user.name,
+            email: user.email,
+            balance: user.balance,
+            role: user.role,
+            created_at: user.created_at
+        };
         return res.status(200).json({ data: userWithNoPassword });
     }
     catch (error) {

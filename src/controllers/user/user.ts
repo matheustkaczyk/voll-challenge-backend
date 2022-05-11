@@ -1,6 +1,5 @@
 import { Request, Response } from "express";
 import { findUserService, updateCurrencyService } from "../../services/user";
-import { IUserNoPassword } from "./user.interface";
 
 export const updateCurrency = async (req: Request, res: Response) => {
   try {
@@ -15,10 +14,15 @@ export const updateCurrency = async (req: Request, res: Response) => {
 export const findUser = async (req: Request, res: Response) => {
   try {
     const user = await findUserService(req.user);
-    const userWithNoPassword: IUserNoPassword = {
-      ...user,
+
+    const userWithNoPassword = {
+      _id: user._id,
+      name: user.name,
+      email: user.email,
+      balance: user.balance,
+      role: user.role,
+      created_at: user.created_at
     };
-    delete userWithNoPassword.password;
     
     return res.status(200).json({ data: userWithNoPassword });
   } catch (error) {

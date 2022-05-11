@@ -24,7 +24,7 @@ export const updateCurrencyService = async (user: IUserModel, currency: String):
   throw new Error('User not found');
 }
 
-export const findUserService = async (user: IUserModel): Promise<IUser> => {
+export const findUserService = async (user: IUserModel) => {
   const found = await findUser(user);
 
   if (!found) throw new Error('User not found');
