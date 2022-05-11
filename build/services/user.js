@@ -12,7 +12,7 @@ var __importDefault = (this && this.__importDefault) || function (mod) {
     return (mod && mod.__esModule) ? mod : { "default": mod };
 };
 Object.defineProperty(exports, "__esModule", { value: true });
-exports.updateCurrencyService = exports.signInService = exports.signUpService = void 0;
+exports.findUserService = exports.updateCurrencyService = exports.signInService = exports.signUpService = void 0;
 const user_1 = require("../models/user");
 const jwtSign_1 = require("../utils/jwtSign");
 const dotenv_1 = __importDefault(require("dotenv"));
@@ -57,3 +57,10 @@ const updateCurrencyService = (user, currency) => __awaiter(void 0, void 0, void
     throw new Error('User not found');
 });
 exports.updateCurrencyService = updateCurrencyService;
+const findUserService = (user) => __awaiter(void 0, void 0, void 0, function* () {
+    const found = yield (0, user_1.findUser)(user);
+    if (!found)
+        throw new Error('User not found');
+    return found;
+});
+exports.findUserService = findUserService;

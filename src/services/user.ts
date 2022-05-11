@@ -1,7 +1,6 @@
 import { IUser, IUserLogin, IUserModel } from "../controllers/user/user.interface";
 import { createUser, findUser, updateCurrency } from "../models/user";
 import { jwtSign } from "../utils/jwtSign";
-import User from '../database/schemas/user';
 import dotenv from 'dotenv';
 import md5 from "md5";
 
@@ -48,4 +47,12 @@ export const updateCurrencyService = async (user: IUserModel, currency: String):
   }
 
   throw new Error('User not found');
+}
+
+export const findUserService = async (user: IUserModel): Promise<IUser> => {
+  const found = await findUser(user);
+
+  if (!found) throw new Error('User not found');
+
+  return found;
 }

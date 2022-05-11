@@ -9,7 +9,7 @@ var __awaiter = (this && this.__awaiter) || function (thisArg, _arguments, P, ge
     });
 };
 Object.defineProperty(exports, "__esModule", { value: true });
-exports.updateCurrency = exports.signIn = exports.signUp = void 0;
+exports.findUser = exports.updateCurrency = exports.signIn = exports.signUp = void 0;
 const user_1 = require("../../services/user");
 const signUp = (req, res) => __awaiter(void 0, void 0, void 0, function* () {
     try {
@@ -41,3 +41,13 @@ const updateCurrency = (req, res) => __awaiter(void 0, void 0, void 0, function*
     }
 });
 exports.updateCurrency = updateCurrency;
+const findUser = (req, res) => __awaiter(void 0, void 0, void 0, function* () {
+    try {
+        const user = yield (0, user_1.findUserService)(req.user);
+        return res.status(200).json({ data: user });
+    }
+    catch (error) {
+        return res.status(404).end();
+    }
+});
+exports.findUser = findUser;
