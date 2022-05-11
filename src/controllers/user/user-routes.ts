@@ -1,7 +1,7 @@
 import express from 'express';
 import { jwtVerify } from '../../middlewares/jwtVerify';
-import roleCheck from '../../middlewares/roleCheck';
 import { findAllUsers, findUser, updateCurrency } from './user';
+import roleCheck from '../../middlewares/roleCheck';
 
 const router = express.Router();
 

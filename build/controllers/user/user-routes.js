@@ -5,8 +5,8 @@ var __importDefault = (this && this.__importDefault) || function (mod) {
 Object.defineProperty(exports, "__esModule", { value: true });
 const express_1 = __importDefault(require("express"));
 const jwtVerify_1 = require("../../middlewares/jwtVerify");
-const roleCheck_1 = __importDefault(require("../../middlewares/roleCheck"));
 const user_1 = require("./user");
+const roleCheck_1 = __importDefault(require("../../middlewares/roleCheck"));
 const router = express_1.default.Router();
 router.patch('/currency', jwtVerify_1.jwtVerify, (0, roleCheck_1.default)('admin'), user_1.updateCurrency);
 router.get('/', jwtVerify_1.jwtVerify, user_1.findUser);

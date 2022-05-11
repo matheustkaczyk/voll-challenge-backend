@@ -13,7 +13,7 @@ const cors_1 = __importDefault(require("cors"));
 exports.app = (0, express_1.default)();
 const corsOptions = {
     origin: 'http://localhost:3000',
-    methods: ['GET', 'POST', 'PUT', 'DELETE'],
+    methods: ['GET', 'POST', 'PUT', 'PATCH', 'DELETE'],
 };
 exports.app.use(express_1.default.json());
 exports.app.use((0, cors_1.default)(corsOptions));
