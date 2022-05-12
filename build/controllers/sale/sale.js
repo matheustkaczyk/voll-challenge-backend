@@ -13,7 +13,7 @@ exports.createSale = void 0;
 const sale_1 = require("../../services/sale");
 const createSale = (req, res) => __awaiter(void 0, void 0, void 0, function* () {
     try {
-        yield (0, sale_1.createSaleService)(req.user, req.body.products);
+        yield (0, sale_1.createSaleService)(req.body.user, req.body.products);
         res.status(201).end();
     }
     catch (error) {

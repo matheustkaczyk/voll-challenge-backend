@@ -4,7 +4,7 @@ import { createSaleService } from "../../services/sale";
 export const createSale = async (req: Request, res: Response) => {
   try {
     await createSaleService(
-      req.user,
+      req.body.user,
       req.body.products
     );
 
