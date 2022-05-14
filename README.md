@@ -57,7 +57,7 @@ Para rodar esse projeto é necessário ter instalado em sua máquina o runtime N
 ### **Utilização online**
 
 1. Foi disponibilizado uma api online onde poderá ser feito requisições de forma a não instalar nada no computador. É só fazer as requisições com os formatos descritos na seção de **ROTAS**. O link para acessar a API está logo abaixo.
-   1. **COLOCAR AQUI**
+   1. **`https://vollcoinstoreback.herokuapp.com/`**
    1. [ATENÇÃO] - Vale destacar que a **primeira requisição** do Heroku pode demorar e as vezes até falhar. Se não funcionar de primeira, por gentileza **tente cancelar e refazer** a requisição.
 
 
@@ -66,7 +66,7 @@ Para rodar esse projeto é necessário ter instalado em sua máquina o runtime N
 
 Também está disponibilidado o Frontend desse projeto, link do repositório: **`https://github.com/matheustkaczyk/voll-challenge-frontend`**
 
-O website pode ser acessado através deste link: **COLOCAR AQUI**
+O website pode ser acessado através deste link: **`https://vollcoinstore.netlify.app/`**
 
 ---
 
