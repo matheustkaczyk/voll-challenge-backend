@@ -77,7 +77,7 @@ O contexto dessa API é prover toda a lógica necessária para o frontend de uma
 ## Rotas | Endpoints
 
 Todos os Endpoints dessa API estão disponíveis pelo swagger dentro da aplicação.
-Para acessa-lo utilize a rota **`/docs`**.
+Para acessa-lo utilize a rota **`https://vollcoinstoreback.herokuapp.com/docs`**.
 
 ---
 
