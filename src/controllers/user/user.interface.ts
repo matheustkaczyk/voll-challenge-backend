@@ -2,8 +2,8 @@ export interface IUser {
   name: string;
   email: string;
   password: string;
-  balance: number;
-  role: string;
+  balance?: number;
+  role?: string;
 }
 
 export interface IUserLogin {

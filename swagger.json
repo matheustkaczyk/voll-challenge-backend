@@ -1,3 +1,59 @@
 {
-  
+  "openapi": "3.0.0",
+  "info": {
+    "title": "Auth",
+    "version": "1.0.0"
+  },
+  "basepath": "/",
+  "paths": {
+    "/auth/signup": {
+      "post": {
+        "tags": ["Auth"],
+        "summary": "Signup",
+        "requestBody": 
+        {
+          "in": "body",
+          "name": "user",
+          "description": "Create a new user account",
+          "type": "object",
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/Signup"
+              }
+            }
+          }
+        },
+        "responses": {
+          "201": {
+            "description": "Usuário criado com sucesso"
+          },
+          "400": {
+            "description": "Requisição não contém todos os dados necessários"
+          }
+        }
+      }
+    }
+  },
+  "components": {
+    "schemas": {
+      "Signup": {
+        "type": "object",
+        "properties": {
+          "name": {
+            "type": "string",
+            "required": true
+          },
+          "email": {
+            "type": "string",
+            "required": true
+          },
+          "password": {
+            "type": "string",
+            "required": true
+          }
+        }
+      }
+    }
+  }
 }
