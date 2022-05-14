@@ -54,10 +54,6 @@ Para rodar esse projeto é necessário ter instalado em sua máquina o runtime N
     SECRET= mysecret
     ```
 
-5. O servidor está iniciado na porta 3001 e você pode começar a fazer as requisições com os formatos descritos na seção de **ROTAS**
-
-
-
 ### **Utilização online**
 
 1. Foi disponibilizado uma api online onde poderá ser feito requisições de forma a não instalar nada no computador. É só fazer as requisições com os formatos descritos na seção de **ROTAS**. O link para acessar a API está logo abaixo.
