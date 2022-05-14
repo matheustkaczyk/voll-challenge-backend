@@ -136,6 +136,28 @@
           }
         }
       }
+    },
+    "/products": {
+      "get": {
+        "tags": ["Products"],
+        "summary": "Pega todos os produtos",
+        "security": [
+          {
+            "bearerAuth": []
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Produtos retornados com sucesso"
+          },
+          "404": {
+            "description": "Not found"
+          },
+          "400": {
+            "description": "Usuário não autenticado"
+          }
+        }
+      }
     }
   },
   "components": {
