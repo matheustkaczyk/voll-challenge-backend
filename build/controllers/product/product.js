@@ -28,7 +28,7 @@ const createProduct = (req, res) => __awaiter(void 0, void 0, void 0, function* 
         return res.status(201).end();
     }
     catch (error) {
-        return res.status(404).json(error.message);
+        return res.status(400).json(error.message);
     }
 });
 exports.createProduct = createProduct;
