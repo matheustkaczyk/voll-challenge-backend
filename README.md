@@ -76,7 +76,7 @@ O website pode ser acessado através deste link: **COLOCAR AQUI**
 
 ## Contexto e Regras de Negócio
 
-### O contexto dessa API é prover toda a lógica necessária para o frontend de uma loja virtual funcionar corretamente.
+O contexto dessa API é prover toda a lógica necessária para o frontend de uma loja virtual funcionar corretamente.
 
 ## Rotas | Endpoints
 
