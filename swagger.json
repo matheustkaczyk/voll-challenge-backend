@@ -253,6 +253,44 @@
           }
         }
       }
+    },
+    "/sale/" : {
+      "post": {
+        "tags": ["Sale"],
+        "summary": "Cria uma nova venda",
+        "security": [
+          {
+            "bearerAuth": []
+          }
+        ],
+        "requestBody": 
+        {
+          "in": "body",
+          "name": "sale",
+          "description": "Cria uma nova venda com base no corpo da requisição, que é um objeto com os dados da venda",
+          "type": "object",
+          "content": {
+            "user": {
+              "schema": {
+                "$ref": "#/components/schemas/User"
+              }
+            },
+            "products": {
+              "schema": {
+                "$ref": "#/components/schemas/ProductSale"
+              }
+            }
+          }
+        },
+        "responses": {
+          "201": {
+            "description": "Venda criada com sucesso"
+          },
+          "400": {
+            "description": "Requisição não contém todos os dados necessários"
+          }
+        }
+      }
     }
   },
   "components": {
@@ -319,6 +357,98 @@
             "required": true
           },
           "stock": {
+            "type": "number",
+            "required": true
+          }
+        }
+      },
+      "ProductSale": {
+        "type": "object",
+        "properties": {
+          "name": {
+            "type": "string",
+            "required": true
+          },
+          "description": {
+            "type": "string",
+            "required": true
+          },
+          "price": {
+            "type": "number",
+            "required": true
+          },
+          "stock": {
+            "type": "number",
+            "required": true
+          },
+          "quantity": {
+            "type": "number",
+            "required": true
+          },
+          "total": {
+            "type": "number",
+            "required": true
+          }
+        }
+      },
+      "User": {
+        "type": "object",
+        "properties": {
+          "user": {
+            "type": "object",
+            "properties": {
+              "id": {
+                "type": "number",
+                "required": true
+              },
+              "name": {
+                "type": "string",
+                "required": true
+              },
+              "email": {
+                "type": "string",
+                "required": true
+              },
+              "password": {
+                "type": "string",
+                "required": true
+              },
+              "created_at": {
+                "type": "string",
+                "required": true
+              },
+              "updated_at": {
+                "type": "string",
+                "required": true
+              }
+            }
+          },
+          "products": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/ProductSale"
+            }
+          }
+        }
+      },
+      "Sale": {
+        "type": "object",
+        "properties": {
+          "_id": {
+            "type": "number",
+            "required": true
+          },
+          "user_id": {
+            "type": "number",
+            "required": true
+          },
+          "products": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/ProductSale"
+            }
+          },
+          "total_price": {
             "type": "number",
             "required": true
           }
