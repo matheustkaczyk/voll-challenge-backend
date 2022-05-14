@@ -110,6 +110,11 @@
       "patch": {
         "tags": ["User"],
         "summary": "Atualiza a moeda do usuário",
+        "security": [
+          {
+            "bearerAuth": []
+          }
+        ],
         "requestBody": 
         {
           "in": "body",
@@ -161,6 +166,11 @@
       "post": {
         "tags": ["Products"],
         "summary": "Cria um novo produto",
+        "security": [
+          {
+            "bearerAuth": []
+          }
+        ],
         "requestBody": 
         {
           "in": "body",
@@ -181,6 +191,65 @@
           },
           "400": {
             "description": "Requisição não contém todos os dados necessários"
+          }
+        }
+      }
+    },
+    "/products/{id}": {
+      "put": {
+        "tags": ["Products"],
+        "summary": "Atualiza um produto",
+        "parameters":[{
+          "in": "path",
+          "name": "id",
+          "description": "ID do produto"
+        }],
+        "requestBody": 
+        {
+          "in": "body",
+          "name": "product",
+          "description": "Atualiza um produto com base no corpo da requisição, que é um objeto com os dados do produto",
+          "type": "object",
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/Product"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "Produto atualizado com sucesso"
+          },
+          "404": {
+            "description": "Not found"
+          },
+          "400": {
+            "description": "Usuário não autenticado"
+          }
+        }
+      },
+      "delete": {
+        "tags": ["Products"],
+        "summary": "Deleta um produto",
+        "security": {
+          "bearerAuth": []
+        },
+        "parameters":[{
+          "in": "path",
+          "name": "id",
+          "description": "ID do produto"
+        }],
+        "responses": {
+          "200": {
+            "description": "Produto deletado com sucesso"
+          },
+          "404": {
+            "description": "Not found"
+          },
+          "400": {
+            "description": "Usuário não autenticado"
           }
         }
       }
@@ -235,28 +304,23 @@
         "properties": {
           "name": {
             "type": "string",
-            "required": true,
-            "example": "HD Seagate BarraCuda, 4TB"
+            "required": true
           },
           "description": {
             "type": "string",
-            "required": true,
-            "example": "HD Seagate BarraCuda, 4TB, 3.5´, SATA - ST4000DM004"
+            "required": true
           },
           "price": {
             "type": "number",
-            "required": true,
-            "example": "600"
+            "required": true
           },
           "img_url": {
             "type": "string",
-            "required": true,
-            "example": "https://images.kabum.com.br/produtos/fotos/95803/95803_1522867513_index_gg.jpg"
+            "required": true
           },
           "stock": {
             "type": "number",
-            "required": true,
-            "example": "12"
+            "required": true
           }
         }
       }
