@@ -13,7 +13,7 @@ const swagger_ui_express_1 = __importDefault(require("swagger-ui-express"));
 const cors_1 = __importDefault(require("cors"));
 exports.app = (0, express_1.default)();
 const corsOptions = {
-    origin: ['http://localhost:3000', 'http://localhost:3001/docs'],
+    origin: ['http://localhost:3000', 'http://localhost:3001/docs', 'https://stupendous-rabanadas-670224.netlify.app/'],
     methods: ['GET', 'POST', 'PUT', 'PATCH', 'DELETE'],
 };
 exports.app.use(express_1.default.json());

@@ -9,7 +9,7 @@ import cors from 'cors';
 export const app = express();
 
 const corsOptions = {
-  origin: ['http://localhost:3000', 'http://localhost:3001/docs'],
+  origin: ['http://localhost:3000', 'http://localhost:3001/docs', 'https://stupendous-rabanadas-670224.netlify.app/'],
   methods: ['GET', 'POST', 'PUT', 'PATCH', 'DELETE'],
 }
 
