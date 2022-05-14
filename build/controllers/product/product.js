@@ -17,7 +17,7 @@ const getAllProducts = (_req, res) => __awaiter(void 0, void 0, void 0, function
         return res.status(200).json(products);
     }
     catch (error) {
-        return res.status(404).end();
+        return res.status(404).json(error.message);
     }
 });
 exports.getAllProducts = getAllProducts;
@@ -28,7 +28,7 @@ const createProduct = (req, res) => __awaiter(void 0, void 0, void 0, function* 
         return res.status(201).end();
     }
     catch (error) {
-        return res.status(404).end();
+        return res.status(404).json(error.message);
     }
 });
 exports.createProduct = createProduct;
@@ -40,7 +40,7 @@ const editProductById = (req, res) => __awaiter(void 0, void 0, void 0, function
         return res.status(200).end();
     }
     catch (error) {
-        return res.status(404).end();
+        return res.status(404).json(error.message);
     }
 });
 exports.editProductById = editProductById;
@@ -51,7 +51,7 @@ const removeProductById = (req, res) => __awaiter(void 0, void 0, void 0, functi
         return res.status(200).end();
     }
     catch (error) {
-        return res.status(404).end();
+        return res.status(404).json(error.message);
     }
 });
 exports.removeProductById = removeProductById;

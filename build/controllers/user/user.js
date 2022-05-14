@@ -17,7 +17,7 @@ const updateCurrency = (req, res) => __awaiter(void 0, void 0, void 0, function*
         return res.status(200).end();
     }
     catch (error) {
-        return res.status(400).end();
+        return res.status(400).json(error.message);
     }
 });
 exports.updateCurrency = updateCurrency;
@@ -35,7 +35,7 @@ const findUser = (req, res) => __awaiter(void 0, void 0, void 0, function* () {
         return res.status(200).json({ data: userWithNoPassword });
     }
     catch (error) {
-        return res.status(404).end();
+        return res.status(404).json(error.message);
     }
 });
 exports.findUser = findUser;
@@ -55,7 +55,7 @@ const findAllUsers = (req, res) => __awaiter(void 0, void 0, void 0, function* (
         return res.status(200).json({ data: usersWithNoPassword });
     }
     catch (error) {
-        return res.status(404).end();
+        return res.status(404).json(error.message);
     }
 });
 exports.findAllUsers = findAllUsers;

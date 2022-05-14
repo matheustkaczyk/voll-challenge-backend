@@ -10,7 +10,7 @@ export const createSale = async (req: Request, res: Response) => {
 
     res.status(201).end();
   } catch (error) {
-    res.status(400).end();
+    res.status(400).json((error as Error).message);
   }
 }
  

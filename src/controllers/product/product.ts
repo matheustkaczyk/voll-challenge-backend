@@ -12,7 +12,7 @@ export const getAllProducts = async (_req: Request, res: Response) => {
 
     return res.status(200).json(products);
   } catch (error) {
-    return res.status(404).end();
+    return res.status(404).json((error as Error).message);
   }
 }
 
@@ -23,7 +23,7 @@ export const createProduct = async (req: Request, res: Response) => {
 
     return res.status(201).end();
   } catch(error) {
-    return res.status(404).end();
+    return res.status(404).json((error as Error).message);
   }
 }
 
@@ -35,7 +35,7 @@ export const editProductById = async (req: Request, res: Response) => {
 
     return res.status(200).end();
   } catch(error) {
-    return res.status(404).end();
+    return res.status(404).json((error as Error).message);
   }
 }
 
@@ -46,6 +46,6 @@ export const removeProductById = async (req: Request, res: Response) => {
 
     return res.status(200).end();
   } catch(error) {
-    return res.status(404).end();
+    return res.status(404).json((error as Error).message);
   }
 }

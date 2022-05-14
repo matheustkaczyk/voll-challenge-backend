@@ -17,7 +17,7 @@ const createSale = (req, res) => __awaiter(void 0, void 0, void 0, function* () 
         res.status(201).end();
     }
     catch (error) {
-        res.status(400).end();
+        res.status(400).json(error.message);
     }
 });
 exports.createSale = createSale;
