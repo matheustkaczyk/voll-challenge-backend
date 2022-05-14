@@ -50,7 +50,7 @@ Para rodar esse projeto é necessário ter instalado em sua máquina o runtime N
 4. Na raiz do projeto crie um arquivo com o nome **`.env`**, nele ficará as suas variáveis de ambiente, por exemplo:
     ```
     PORT = 3001
-    DB_CONNECTION = 
+    DB_CONNECTION = URI para a conexão com o seu mongodb
     SECRET= mysecret
     ```
 
@@ -80,8 +80,8 @@ O website pode ser acessado através deste link: **COLOCAR AQUI**
 
 ## Rotas | Endpoints
 
-## Todos os Endpoints dessa API estão disponíveis pelo swagger dentro da aplicação
-## Para acessa-lo utilize a rota **`/docs`**.
+Todos os Endpoints dessa API estão disponíveis pelo swagger dentro da aplicação.
+Para acessa-lo utilize a rota **`/docs`**.
 
 ---
 
