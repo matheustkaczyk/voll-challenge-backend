@@ -11,13 +11,13 @@
 ##### Bibliotecas:
 
 - [Express](https://expressjs.com/) v^4.17.3 - Framework Node
-- [TypeScript] v^4.6.4 - Superset para Javascript
-- [cors] v^2.8.5 - Pacote para configuração do CORS
-- [dotenv] v^16.0.0  - Pacote para configuração de variáveis de ambiente
-- [jsonwebtoken] v^8.5.1 - Pacote para configuração de tokens de autênticação
-- [md5] v^2.3.0 - Pacote para a criação de hashes md5 para senhas
-- [mongoose] v^6.3.2 - Ferramente para trabalhar com banco de dados não relacionais mais fácilmente
-- [swagger-ui-express] v^4.4.0 - Pacote para configurar a documentação pelo swagger
+- [TypeScript](https://www.npmjs.com/package/typescript) v^4.6.4 - Superset para Javascript
+- [cors](https://www.npmjs.com/package/cors) v^2.8.5 - Pacote para configuração do CORS
+- [dotenv](https://www.npmjs.com/package/dotenv) v^16.0.0  - Pacote para configuração de variáveis de ambiente
+- [jsonwebtoken](https://www.npmjs.com/package/jsonwebtoken) v^8.5.1 - Pacote para configuração de tokens de autênticação
+- [md5](https://www.npmjs.com/package/md5) v^2.3.0 - Pacote para a criação de hashes md5 para senhas
+- [mongoose](https://www.npmjs.com/package/mongoose) v^6.3.2 - Ferramente para trabalhar com banco de dados não relacionais mais fácilmente
+- [swagger-ui-express](https://www.npmjs.com/package/swagger-ui-express) v^4.4.0 - Pacote para configurar a documentação pelo swagger
 
 ## **Sumário**
 
