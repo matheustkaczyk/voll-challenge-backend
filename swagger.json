@@ -105,6 +105,37 @@
           }
         }
       }
+    },
+    "/user/currency/": {
+      "patch": {
+        "tags": ["User"],
+        "summary": "Atualiza a moeda do usuário",
+        "requestBody": 
+        {
+          "in": "body",
+          "name": "user",
+          "description": "Atualiza a moeda do usuário com base no corpo da requisição, que é uma string de uma operação e o valor desejado (PODE APENAS SER FEITA POR UM ADMINISTRADOR)",
+          "type": "object",
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/Currency"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "Moeda atualizada com sucesso"
+          },
+          "401": {
+            "description": "Usuário não autenticado"
+          },
+          "404": {
+            "description": "Requisição não contém todos os dados necessários"
+          }
+        }
+      }
     }
   },
   "components": {
@@ -138,6 +169,16 @@
             "type": "string",
             "required": true,
             "example": "root"
+          }
+        }
+      },
+      "Currency": {
+        "type": "object",
+        "properties": {
+          "currency": {
+            "type": "string",
+            "required": true,
+            "example": "+500"
           }
         }
       }
