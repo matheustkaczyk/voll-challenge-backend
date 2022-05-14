@@ -8,11 +8,15 @@ const dotenv_1 = __importDefault(require("dotenv"));
 const jsonwebtoken_1 = __importDefault(require("jsonwebtoken"));
 dotenv_1.default.config();
 const jwtVerify = (req, res, next) => {
-    const token = req.headers.authorization;
+    let token = req.headers.authorization;
     const secret = process.env.SECRET;
     if (token) {
+        if (token.split(' ').length === 2) {
+            token = token.split(' ').slice(1).join(' ');
+        }
         jsonwebtoken_1.default.verify(token, secret, (err, decoded) => {
             if (err) {
+                console.log(err);
                 return res.status(401).end();
             }
             else {
@@ -22,9 +26,6 @@ const jwtVerify = (req, res, next) => {
                 next();
             }
         });
-    }
-    else {
-        return res.status(400).end();
     }
 };
 exports.jwtVerify = jwtVerify;

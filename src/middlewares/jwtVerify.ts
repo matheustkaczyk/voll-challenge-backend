@@ -6,12 +6,17 @@ import { IUserModel } from '../controllers/user/user.interface';
 dotenv.config();
 
 export const jwtVerify = (req: Request, res: Response, next: NextFunction) => {
-  const token = req.headers.authorization;
+  let token = req.headers.authorization;
   const secret = process.env.SECRET;
 
   if (token) {
+    if (token.split(' ').length === 2) {
+      token = token.split(' ').slice(1).join(' ');
+    }
+
     jwt.verify(token, secret as string, (err, decoded) => {
       if (err) {
+        console.log(err);
         return res.status(401).end();
       } else {
         const { payload }: any = decoded;
@@ -21,8 +26,6 @@ export const jwtVerify = (req: Request, res: Response, next: NextFunction) => {
       }
     }
     );
-  } else {
-    return res.status(400).end();
   }
 }
 
