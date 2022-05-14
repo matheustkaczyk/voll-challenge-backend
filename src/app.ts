@@ -9,7 +9,7 @@ import cors from 'cors';
 export const app = express();
 
 const corsOptions = {
-  origin: ['http://localhost:3000', 'http://localhost:3001/docs', 'https://vollcoinstore.netlify.app/'],
+  origin: "*",
   methods: ['GET', 'POST', 'PUT', 'PATCH', 'DELETE'],
 }
 
