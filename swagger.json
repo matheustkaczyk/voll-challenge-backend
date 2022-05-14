@@ -33,6 +33,34 @@
           }
         }
       }
+    },
+    "/auth/signin": {
+      "post": {
+        "tags": ["Auth"],
+        "summary": "Signin",
+        "requestBody": 
+        {
+          "in": "body",
+          "name": "user",
+          "description": "Signin with email and password",
+          "type": "object",
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/Signin"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "Usuário autenticado com sucesso"
+          },
+          "401": {
+            "description": "Usuário não encontrado"
+          }
+        }
+      }
     }
   },
   "components": {
@@ -51,6 +79,21 @@
           "password": {
             "type": "string",
             "required": true
+          }
+        }
+      },
+      "Signin": {
+        "type": "object",
+        "properties": {
+          "email": {
+            "type": "string",
+            "required": true,
+            "example": "root@root.com"
+          },
+          "password": {
+            "type": "string",
+            "required": true,
+            "example": "root"
           }
         }
       }
