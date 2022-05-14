@@ -83,6 +83,28 @@
           }
         }
       }
+    },
+    "/user/": {
+      "get": {
+        "tags": ["User"],
+        "summary": "Pega o usuário autenticado",
+        "security": [
+          {
+            "bearerAuth": []
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Usuário retornado com sucesso"
+          },
+          "404": {
+            "description": "Not found"
+          },
+          "400": {
+            "description": "Usuário não autenticado"
+          }
+        }
+      }
     }
   },
   "components": {
