@@ -26,6 +26,7 @@
 - [Contexto e Regras de Negócio](#contexto-e-regras-de-negócio)
 - [Rotas | Endpoints](#rotas-|-endpoints)
 - [Próximos passos](#próximos-passos)
+- [Maiores desafios](#maiores-desafios)
 - [Sobre o autor](#sobre-o-autor)
 
 ---
@@ -84,6 +85,9 @@ Para acessa-lo utilize a rota **`https://vollcoinstoreback.herokuapp.com/docs`**
 2. Testes de integração e unitários
 3. Melhorar o tratamento de erro, trazer padronização e mensagens mais nítidas
 4. Rota para listar os pedidos do usuário
+
+## **Maiores desafios**
+Desenvolver essa API não foi uma tarefa fácil, a idéia provida foi: uma loja de pontos. Foi necessário muitas telas de excalidraw, idealizando e abstraindo  para assim começar o desenvolvimento. Essa com certeza foi a tarefa mais difícil do projeto.
 
 ---
 
