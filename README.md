@@ -25,6 +25,7 @@
 - [Instalação](#instalação)
 - [Contexto e Regras de Negócio](#contexto-e-regras-de-negócio)
 - [Rotas | Endpoints](#rotas-|-endpoints)
+- [Próximos passos](#próximos-passos)
 - [Sobre o autor](#sobre-o-autor)
 
 ---
@@ -78,6 +79,12 @@ O contexto dessa API é prover toda a lógica necessária para o frontend de uma
 
 Todos os Endpoints dessa API estão disponíveis pelo swagger dentro da aplicação.
 Para acessa-lo utilize a rota **`https://vollcoinstoreback.herokuapp.com/docs`**.
+
+## **Próximos passos**
+1. Configurar 100% o swagger, ele está listando todas as rotas, mas nem todas ele consegue chamar
+2. Testes de integração e unitários
+3. Melhorar o tratamento de erro, trazer padronização e mensagens mais nítidas
+4. Rota para listar os pedidos do usuário
 
 ---
 
