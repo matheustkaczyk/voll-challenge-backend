@@ -6,7 +6,7 @@
 
 ## Visão Geral
 
-##### Este projeto tinha como propósito a criação de um projeto Fullstack de uma loja de pontos utilizando Node.js, Express.js e Typescript.
+##### Este desafio técnico tinha como propósito a criação de um projeto Fullstack de uma loja de pontos utilizando React no frontend e Node.js, Express.js e Typescript no backend.
 
 ##### Bibliotecas:
 
